@@ -8,7 +8,12 @@ class MainWindow extends BrowserWindow {
       width: 300,
       frame: false,
       resizable: false,
-      show: false
+      show: false,
+      webPreferences: {
+        // Ensure Chromium does not throttle the processing,
+        // ensuring counter continues to run when closed.
+        backgroundThrottling: false
+      }
     });
 
     this.loadURL(urlPath);
